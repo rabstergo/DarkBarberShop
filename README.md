@@ -1,4 +1,4 @@
-RubySchool, Lesson 22
+# Dark Barber Shop
 ====================
 
-Repository for Lesson 22
+## Simple project using Ruby on Sinatra
