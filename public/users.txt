@@ -1,0 +1,4 @@
+Username: admin, Phone: 375257957811, Hairdresser: Walter White, Date time: 2021-07-10, Hair Color: #5484ed
+Username: rabster, Phone: +375 25 771 29 27, Hairdresser: Gus Fring, Date time: 2021-08-01, Hair Color: #46d6db
+Username: mrabets, Phone: 375257957811, Hairdresser: Walter White, Date time: 2021-07-02, Hair Color: #7bd148
+Username: , Phone: , Hairdresser: Walter White, Date time: , Hair Color: #7bd148

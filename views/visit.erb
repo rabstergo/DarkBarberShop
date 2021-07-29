@@ -1,23 +1,64 @@
 <h2>Записаться</h2>
 <p>На этой странице вы сможете записаться к нам в Barber Shop</p>
 
-<form action="/visit" method="POST" role="form">
+<form action="/visit" method="post">
 
-  <div class="form-group">
-    <label>Ваше имя</label>
-    <input name="username" type="text" class="form-control" placeholder="Ваше имя">
+  <div class="form-row">
+    <div class="col">
+      <label for="exampleInputUsername" class="form-label">Имя</label>
+      <input name="username" type="text" class="form-control" placeholder="Иван Иванов" value=<%= @username %>>
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label for="exampleInputPhone1" class="form-label">Номер телефона</label>
+    <input name="phone" type="tel" class="form-control" id="exampleInputPhone1" placeholder="+375(25)111-22-33" value=<%= @phone %>>
   </div>
 
   <div class="form-group">
-    <label>Ваш телефон</label>
-    <input name="phone" type="text" class="form-control" placeholder="Ваш телефон">
+    <label for="inputDate">Введите дату:</label>
+    <input name="date_time" type="date" class="form-control" value=<%= @date_time %>>
   </div>
 
   <div class="form-group">
-    <label>Когда вас ждать?</label>
-    <input name="datetime" type="text" class="form-control" placeholder="Введите дату и время">
+    <label>Выберите парикмахера</label>
+    <select name="hairdresser" class="form-control">
+
+      <% @hairdressers_data.each do |hairdresser| %>
+        <option <%= @hairdresser == hairdresser[1] ? 'selected' : '' %> value='<%= hairdresser[1] %>'><%= hairdresser[1] %></option>
+      <% end %>
+
+<!--      <option <%#= @hairdresser == 'Walter White' ? 'selected' : '' %> value="Walter White">Walter White</option>-->
+<!--      <option <%#= @hairdresser == 'Jessie Pinkman' ? 'selected' : '' %> value="Jessie Pinkman">Jessie Pinkman</option>-->
+<!--      <option <%#= @hairdresser == 'Gus Fring' ? 'selected' : '' %> value="Gus Fring">Gus Fring</option>-->
+    </select>
   </div>
 
-  <button type="submit" class="btn btn-primary">Записаться</button>
+  <div class="form-group">
+    <label for="inputHairColor">Введите цвет волос:</label>
+    <select id="color_picker" name="hair_color">
+      <option value="#7bd148">Green</option>
+      <option value="#5484ed">Bold blue</option>
+      <option value="#a4bdfc">Blue</option>
+      <option value="#46d6db">Turquoise</option>
+      <option value="#7ae7bf">Light green</option>
+      <option value="#51b749">Bold green</option>
+      <option value="#fbd75b">Yellow</option>
+      <option value="#ffb878">Orange</option>
+      <option value="#ff887c">Red</option>
+      <option value="#dc2127">Bold red</option>
+      <option value="#dbadff">Purple</option>
+      <option value="#e1e1e1">Gray</option>
+    </select>
+  </div>
+
+ <p><br><button type="submit" class="btn btn-primary">Submit</button></p>
 
 </form>
+
+<script type="text/javascript">
+    $(function() {
+        $("#color_picker").simplecolorpicker();
+    })
+
+</script>
