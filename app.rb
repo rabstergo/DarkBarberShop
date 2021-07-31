@@ -1,8 +1,14 @@
 require 'rubygems'
 require 'sinatra'
-require 'pony'
+require 'sinatra/reloader'
+require 'sinatra/activerecord'
 require 'sqlite3'
 require './methods'
+
+set :database, { adapter: 'sqlite3', database: 'base.db' }
+
+class Client < ActiveRecord::Base
+end
 
 configure do
   $db = SQLite3::Database.new 'base.db'
