@@ -8,8 +8,8 @@ require './methods'
 set :database, { adapter: 'sqlite3', database: 'barbershop.db' }
 
 class Client < ActiveRecord::Base
-  validates :name, presence: true
-  validates :phone, presence: true
+  validates :name, presence: true, length: { minimum: 2 }
+  validates :phone, presence: true, length: { in: 9..13 }
   validates :datestamp, presence: true
   validates :barber, presence: true
 end
@@ -18,9 +18,9 @@ class Barber < ActiveRecord::Base
 end
 
 class Contact < ActiveRecord::Base
-  validates :name, presence: true
+  validates :name, presence: true, length: { minimum: 2 }
   validates :mail, presence: true
-  validates :body, presence: true
+  validates :body, presence: true, length: { maximum: 200 }
 end
 
 configure do
