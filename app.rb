@@ -5,9 +5,12 @@ require 'sinatra/activerecord'
 require 'sqlite3'
 require './methods'
 
-set :database, { adapter: 'sqlite3', database: 'base.db' }
+set :database, { adapter: 'sqlite3', database: 'barbershop.db' }
 
 class Client < ActiveRecord::Base
+end
+
+class Barber < ActiveRecord::Base
 end
 
 configure do
