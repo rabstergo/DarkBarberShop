@@ -80,6 +80,7 @@ end
 
 get '/visit' do
   @hairdressers_data = $db.execute 'SELECT * FROM Hairdressers'
+  @barbers = Barber.all
 	erb :visit
 end
 

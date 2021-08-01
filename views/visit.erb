@@ -24,9 +24,14 @@
     <label>Выберите парикмахера</label>
     <select name="hairdresser" class="form-control">
 
-      <% @hairdressers_data.each do |hairdresser| %>
-        <option <%= @hairdresser == hairdresser[1] ? 'selected' : '' %> value='<%= hairdresser[1] %>'><%= hairdresser[1] %></option>
+
+      <% @barbers.each do |barber| %>
+       <option value=<%= barber.name %>><%= barber.name %></option>
       <% end %>
+
+      <%# @hairdressers_data.each do |hairdresser| %>
+<!--        <option <%#= @hairdresser == hairdresser[1] ? 'selected' : '' %> value='<%#= hairdresser[1] %>'><%#= hairdresser[1] %></option>-->
+      <%# end %>
 
 <!--      <option <%#= @hairdresser == 'Walter White' ? 'selected' : '' %> value="Walter White">Walter White</option>-->
 <!--      <option <%#= @hairdresser == 'Jessie Pinkman' ? 'selected' : '' %> value="Jessie Pinkman">Jessie Pinkman</option>-->
