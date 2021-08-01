@@ -32,11 +32,7 @@ get '/contacts' do
 end
 
 post '/contacts' do
-  @name = params[:name]
-  @mail = params[:mail]
-  @body = params[:body]
-
-  Contact.create name: @name, mail: @mail, body: @body
+  Contact.create params[:contact]
 
   erb "Спасибо #{@name} за обращение."
 end
@@ -50,21 +46,15 @@ get '/visit' do
 end
 
 post '/visit' do
-  @name = params[:name]
-  @phone = params[:phone]
-  @barber = params[:barber]
-  @datestamp = params[:datestamp]
-  @color = params[:color]
-
   hh = { name: 'Введите имя', phone: 'Введите номер телефона', datestamp: 'Введите дату', }
 
   @error = hh.select { |key, _| params[key] == "" }.values.join(", ")
 
   return erb :visit if @error != ''
 
-  Client.create name: @name, phone: @phone, datestamp: @datestamp, barber: @barber, color: @color
+  Client.create params[:client]
 
-  message_construct "Спасибо #{@name}", "Ждём вас #{@datestamp}."
+  erb "Спасибо за запись! Мы вас ждём."
 end
 
 get '/show_users' do

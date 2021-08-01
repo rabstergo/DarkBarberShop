@@ -6,23 +6,23 @@
   <div class="form-row">
     <div class="col">
       <label for="exampleInputUsername" class="form-label">Имя</label>
-      <input name="name" type="text" class="form-control" placeholder="Иван Иванов" value=<%= @name %>>
+      <input name="client[name]" type="text" class="form-control" placeholder="Иван Иванов" value=<%= @name %>>
     </div>
   </div>
 
   <div class="mb-3">
     <label for="exampleInputPhone1" class="form-label">Номер телефона</label>
-    <input name="phone" type="tel" class="form-control" id="exampleInputPhone1" placeholder="+375(25)111-22-33" value=<%= @phone %>>
+    <input name="client[phone]" type="tel" class="form-control" id="exampleInputPhone1" placeholder="+375(25)111-22-33" value=<%= @phone %>>
   </div>
 
   <div class="form-group">
     <label for="inputDate">Введите дату:</label>
-    <input name="datestamp" type="date" class="form-control" value=<%= @datestamp %>>
+    <input name="client[datestamp]" type="date" class="form-control" value=<%= @datestamp %>>
   </div>
 
   <div class="form-group">
     <label>Выберите парикмахера</label>
-    <select name="barber" class="form-control">
+    <select name="client[barber]" class="form-control">
 
       <% Barber.all.each do |barber| %>
        <option value=<%= barber.name %>><%= barber.name %></option>
@@ -33,7 +33,7 @@
 
   <div class="form-group">
     <label for="inputHairColor">Введите цвет волос:</label>
-    <select id="color_picker" name="color">
+    <select id="color_picker" name="client[color]">
       <option value="#7bd148">Green</option>
       <option value="#5484ed">Bold blue</option>
       <option value="#a4bdfc">Blue</option>
