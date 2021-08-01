@@ -20,7 +20,7 @@ configure do
 end
 
 get '/' do
-  erb 'Hello'
+  redirect '/visit'
 end
 
 get '/about' do
@@ -31,16 +31,18 @@ get '/contacts' do
   erb :contacts
 end
 
-get '/show_users' do
-  erb :show_users
-end
-
 post '/contacts' do
   @name = params[:name]
   @mail = params[:mail]
   @body = params[:body]
 
+  Contact.create name: @name, mail: @mail, body: @body
+
   erb "Спасибо #{@name} за обращение."
+end
+
+get '/show_contacts' do
+  erb :show_contacts
 end
 
 get '/visit' do
@@ -65,3 +67,6 @@ post '/visit' do
   message_construct "Спасибо #{@name}", "Ждём вас #{@datestamp}."
 end
 
+get '/show_users' do
+  erb :show_users
+end
