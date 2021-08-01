@@ -18,6 +18,9 @@ class Barber < ActiveRecord::Base
 end
 
 class Contact < ActiveRecord::Base
+  validates :name, presence: true
+  validates :mail, presence: true
+  validates :body, presence: true
 end
 
 configure do
@@ -32,13 +35,19 @@ get '/about' do
 end
 
 get '/contacts' do
+  @con = Contact.new
   erb :contacts
 end
 
 post '/contacts' do
-  Contact.create params[:contact]
+  @con = Contact.new params[:contact]
 
-  erb "Спасибо #{@name} за обращение."
+  if @con.save
+    erb "Спасибо за обращение."
+  else
+    @error = @con.errors.full_messages.first
+    erb :contacts
+  end
 end
 
 get '/show_contacts' do
