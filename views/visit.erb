@@ -6,7 +6,7 @@
   <div class="form-row">
     <div class="col">
       <label for="exampleInputUsername" class="form-label">Имя</label>
-      <input name="username" type="text" class="form-control" placeholder="Иван Иванов" value=<%= @username %>>
+      <input name="name" type="text" class="form-control" placeholder="Иван Иванов" value=<%= @name %>>
     </div>
   </div>
 
@@ -17,31 +17,23 @@
 
   <div class="form-group">
     <label for="inputDate">Введите дату:</label>
-    <input name="date_time" type="date" class="form-control" value=<%= @date_time %>>
+    <input name="datestamp" type="date" class="form-control" value=<%= @datestamp %>>
   </div>
 
   <div class="form-group">
     <label>Выберите парикмахера</label>
-    <select name="hairdresser" class="form-control">
+    <select name="barber" class="form-control">
 
-
-      <% @barbers.each do |barber| %>
+      <% Barber.all.each do |barber| %>
        <option value=<%= barber.name %>><%= barber.name %></option>
       <% end %>
 
-      <%# @hairdressers_data.each do |hairdresser| %>
-<!--        <option <%#= @hairdresser == hairdresser[1] ? 'selected' : '' %> value='<%#= hairdresser[1] %>'><%#= hairdresser[1] %></option>-->
-      <%# end %>
-
-<!--      <option <%#= @hairdresser == 'Walter White' ? 'selected' : '' %> value="Walter White">Walter White</option>-->
-<!--      <option <%#= @hairdresser == 'Jessie Pinkman' ? 'selected' : '' %> value="Jessie Pinkman">Jessie Pinkman</option>-->
-<!--      <option <%#= @hairdresser == 'Gus Fring' ? 'selected' : '' %> value="Gus Fring">Gus Fring</option>-->
     </select>
   </div>
 
   <div class="form-group">
     <label for="inputHairColor">Введите цвет волос:</label>
-    <select id="color_picker" name="hair_color">
+    <select id="color_picker" name="color">
       <option value="#7bd148">Green</option>
       <option value="#5484ed">Bold blue</option>
       <option value="#a4bdfc">Blue</option>

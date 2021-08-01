@@ -7,7 +7,7 @@ end
 def save_form_data_to_database
   $db.execute 'INSERT INTO Users (username, phone, hairdresser, date_time, hair_color)
                   VALUES (?, ?, ?, ?, ?)',
-             [@username, @phone, @hairdresser, @date_time, @hair_color]
+             [@name, @phone, @barber, @datestamp, @color]
 end
 
 def is_table_exists?(db, username)
