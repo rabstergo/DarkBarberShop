@@ -70,6 +70,20 @@ post '/visit' do
   end
 end
 
+get '/show_barbers' do
+  erb :show_barbers
+end
+
+get '/barber/:id' do
+  barber_id = params[:id]
+
+  barber = Barber.find(barber_id)
+  @title = "#{barber.name} barber"
+  @message = "placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups."
+
+  erb :message
+end
+
 get '/show_users' do
   erb :show_users
 end
