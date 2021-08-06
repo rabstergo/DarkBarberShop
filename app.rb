@@ -4,7 +4,7 @@ require 'sinatra/reloader'
 require 'sinatra/activerecord'
 require 'sqlite3'
 require './methods'
-
+#comment
 set :database, { adapter: 'sqlite3', database: 'barbershop.db' }
 
 class Client < ActiveRecord::Base
